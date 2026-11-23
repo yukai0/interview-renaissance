@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Patchwork is an early concept for technical assessments based on real engineering work, with AI tools welcome.">
+  <title>Patchwork — See how candidates solve real engineering work</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="wordmark" href="#top" aria-label="Patchwork home"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>patchwork<span class="wordmark-dot">.</span></a>
+      <nav aria-label="Main navigation"><a href="#how-it-works">How it works</a><a href="#example">Example assessment</a><a href="#faq">FAQ</a></nav>
+    </div>
+  </header>
+  <main id="main">
+    <section class="hero wrap" id="top">
+      <div class="hero-copy"><p class="eyebrow"><span class="eyebrow-line"></span> A BETTER SIGNAL FOR ENGINEERING HIRING</p>
+        <h1>See how candidates solve <em>real engineering work</em> with AI.</h1>
+        <p class="hero-description">Give candidates a realistic task, let them use the tools they already work with, and review what they shipped, how they tested it, and the tradeoffs they made.</p>
+        <div class="actions"><a class="button primary" href="#example">Explore an assessment</a><a class="button secondary" href="#how-it-works">How it works</a></div>
+        <p class="hero-note"><span aria-hidden="true">✳</span> An early concept for more practical interviews.</p>
+      </div>
+      <div class="preview" aria-label="Illustrative assessment preview">
+        <div class="preview-top"><span><span class="tiny-square"></span> SAMPLE ASSESSMENT</span><span>45 MIN</span></div>
+        <div class="preview-body"><div class="preview-file">TASK BRIEF <span>/</span> CHECKOUT</div><h2>Fix duplicate checkout submissions</h2><p>A slow response can let a shopper submit the same checkout twice.</p><div class="preview-rule"></div><p class="preview-label">YOUR DELIVERABLES</p><ul class="preview-list"><li><span>01</span> Prevent duplicate orders</li><li><span>02</span> Preserve safe retries</li><li><span>03</span> Add regression coverage</li></ul></div>
+        <div class="preview-bottom"><span>AI &amp; YOUR TOOLS ARE WELCOME</span><span class="preview-symbol" aria-hidden="true">✳</span></div>
+      </div>
+    </section>
+    <div class="principle"><div class="wrap principle-inner"><span>THE IDEA</span><p>Less puzzle-solving theater. <strong>More evidence of how engineers work.</strong></p></div></div>
+    <section class="section wrap workflow" id="how-it-works"><div class="section-heading"><div><p class="eyebrow">THE WORKFLOW</p><h2>A closer look at<br>the work itself.</h2></div><p>A practical task gives everyone a clearer starting point—and a more useful conversation afterward.</p></div>
+      <div class="steps"><article><span class="step-number">01 / ASSIGN</span><h3>Start with real work.</h3><p>The team assigns a task drawn from a realistic codebase or scenario, with clear constraints and a concrete deliverable.</p></article><article><span class="step-number">02 / BUILD</span><h3>Let candidates work.</h3><p>Candidates use their preferred tools, including AI, to implement and verify a solution.</p></article><article><span class="step-number">03 / REVIEW</span><h3>Discuss the evidence.</h3><p>The team reviews the submission against a task-specific rubric and talks through the decisions behind it.</p></article></div>
+    </section>
+    <section class="example-section" id="example"><div class="wrap"><div class="section-heading example-heading"><div><p class="eyebrow">AN ILLUSTRATIVE WALKTHROUGH</p><h2>One task. A richer<br>conversation.</h2></div><p>Explore what a candidate might receive, submit, and discuss with a reviewer. This example is illustrative and does not execute code.</p></div>
+      <div class="assessment"><div class="assessment-bar"><div><span class="tiny-square"></span> ASSESSMENT EXAMPLE</div><span>CHECKOUT / 45 MIN</span></div>
+        <div class="assessment-layout"><div class="assessment-intro"><p class="eyebrow">THE SCENARIO</p><h3>Fix duplicate checkout submissions.</h3><p>A slow response lets a shopper submit the same checkout twice. The result: two orders when they intended one.</p><div class="intro-foot"><span>FOCUS</span><strong>Reliability &amp; verification</strong></div></div>
+          <div class="assessment-content"><div class="tablist" aria-label="Assessment views"><button type="button" data-panel="brief">Task brief</button><button type="button" data-panel="submission">Candidate submission</button><button type="button" data-panel="rubric">Reviewer rubric</button></div>
+            <section class="panel" id="brief"><p class="panel-kicker">01 / TASK BRIEF</p><h4>Make checkout safe to retry.</h4><p>Prevent repeated submissions from creating duplicate orders, while allowing a shopper to try again safely if a request fails.</p><div class="panel-divider"></div><h5>What to deliver</h5><ul class="check-list"><li>A change that prevents duplicate order creation.</li><li>A safe path for legitimate retries after a failed request.</li><li>Regression coverage and a brief handoff explaining your decisions.</li></ul><div class="callout"><strong>Working notes</strong><span>You have 45 minutes. Use the AI and development tools you normally work with. Explain assumptions and anything left out of scope.</span></div></section>
+            <section class="panel" id="submission"><p class="panel-kicker">02 / CANDIDATE SUBMISSION</p><h4>A possible handoff.</h4><p>“I disabled the checkout button while the request is in progress so shoppers get immediate feedback. That alone isn't enough: a refresh or another request can still reach the server.”</p><p>“The server recognizes repeated requests using the same checkout key and returns the existing result instead of creating another order. If an attempt fails before an order is created, the same key can be retried safely.”</p><div class="callout"><strong>Verification</strong><span>Tests send duplicate requests and confirm there is one order. A separate test simulates a failed attempt, then confirms a legitimate retry can succeed.</span></div><p class="small-note">Illustrative handoff, not a real candidate submission.</p></section>
+            <section class="panel" id="rubric"><p class="panel-kicker">03 / REVIEWER RUBRIC</p><h4>Look for the evidence.</h4><div class="rubric-row"><strong>Correctness</strong><span>Repeated submissions cannot create multiple orders; legitimate retries still work.</span></div><div class="rubric-row"><strong>Verification</strong><span>Regression tests exercise duplicate requests and retry behavior.</span></div><div class="rubric-row"><strong>Engineering judgment</strong><span>The handoff explains where the guarantee is enforced and what was left out of scope.</span></div><div class="rubric-row"><strong>Efficiency</strong><span>Illustrative elapsed time: 38 of 45 minutes. Token usage: unavailable in this workflow.</span></div><p class="small-note">The rubric and elapsed time are examples, not a score.</p></section>
+          </div></div></div>
+      <p class="example-caption"><span>THE POINT</span> Review the result, the verification, and the thinking behind both.</p></div></section>
+    <section class="section wrap faq" id="faq"><div><p class="eyebrow">COMMON QUESTIONS</p><h2>A few things<br>worth asking.</h2></div><div class="faq-list"><details><summary>Can candidates use their own AI tools?</summary><p>Yes. The concept invites candidates to use AI and the other tools they normally work with. The review focuses on the result and how they verified it.</p></details><details><summary>What kinds of tasks can a team assign?</summary><p>Tasks could include diagnosing a bug, fixing an integration, shipping a small feature, or improving an existing implementation. Each should have clear constraints and a concrete deliverable.</p></details><details><summary>How would teams compare candidates fairly?</summary><p>Give candidates the same task, constraints, and expectations, then review their work against the same task-specific rubric. Discuss evidence and tradeoffs rather than relying on a single score.</p></details><details><summary>How do time and token usage factor into the review?</summary><p>Elapsed time can provide context for a time-boxed task. Token usage is useful only when it is captured and comparable, such as under a defined token budget. Neither replaces evidence that the work is sound.</p></details></div></section>
+    <section class="closing"><div class="wrap closing-inner"><div><p class="eyebrow">A MORE PRACTICAL INTERVIEW</p><h2>Give good engineering<br>room to show up.</h2><p>Start with the work. See where the conversation goes.</p></div><a class="button light" href="#example">Explore the assessment</a></div></section>
+  </main>
+  <footer><div class="wrap footer-inner"><a class="wordmark" href="#top"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>patchwork<span class="wordmark-dot">.</span></a><p>An early concept for practical technical interviews.</p><a href="#top">Back to top ↑</a></div></footer>
+</body></html>
